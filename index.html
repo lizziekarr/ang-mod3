@@ -1,16 +1,18 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <title>Narrow Down Your Menu Choice</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/styles.css">
-    <script type="text/javascript" src='./app.js'>
+    <script type="text/javascript" src='angular.min.js'></script>
+    <script type="text/javascript" src='js/app.js'>
 
     </script>
   </head>
-<body ng-app = 'NarrowItDownApp'>
-   <div class="container">
+<body ng-app = 'NarrowItDownApp' ng-controller = 'NarrowItDownController as Ctrl'>
+   <div class="container" >
     <h1>Narrow Down Your Chinese Menu Choice</h1>
 
     <div class="form-group">
@@ -20,8 +22,8 @@
       <button class="btn btn-primary">Narrow It Down For Me!</button>
     </div>
 
-    <!-- found-items should be implemented as a component -->
-    <found-items found-items="...." on-remove="...."></found-items>
+    <!-- found-items should be implemented as a component
+    <found-items found-items="...." on-remove="...."></found-items-->
   </div>
 
 </body>
