@@ -2,7 +2,26 @@
 
   angular.module('NarrowItDownApp', [])
          .controller('NarrowItDownController', NarrowItDownController)
-         .service('MenuSearch', MenuSearch);
+         .service('MenuSearch', MenuSearch)
+         .directive('foundItems', FoundItems);
+
+  function FoundItems() {
+    return {
+      templateUrl: 'founditems.html',
+      scope: {
+        onRemove: '&',
+        found: '<'
+      },
+      controller: NarrowItDownController,
+      controllerAs: 'narrow',
+      bindToController: true
+  }
+}
+
+  // function NarrowItDownDirectiveController(){
+  //   var narrow = this;
+  //   list.found =
+  // }
 
   NarrowItDownController.$inject = ['$scope', 'MenuSearch'];
 
@@ -12,12 +31,18 @@
 
     narrow.searchTerm = '';
     narrow.found = [];
-
+    narrow.message = '';
 
     narrow.getData = function(){
       var promise = MenuSearch.getMatchedMenuItems(narrow.searchTerm);
       promise.then(function(response){
         narrow.found = response;
+        if (narrow.found.length === 0) {
+          narrow.message = 'nothing found';
+        }
+        else {
+          narrow.message = '';
+        }
       })
         .catch(function(error){
         console.log('the controller is broken');

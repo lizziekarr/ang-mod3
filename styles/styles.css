@@ -6,6 +6,12 @@ h1 {
    width: 200px;
    float: left;
  }
+ .message {
+   display: block;
+   padding: 20px;
+   color: purple;
+   font-size: 20px;
+ }
  .narrow-button {
    float: left;
    margin-left: 10px;

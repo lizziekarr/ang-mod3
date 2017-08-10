@@ -1,0 +1,6 @@
+<div class="items" ng-repeat = 'item in narrow.found track by $index'>
+    <li>
+      {{item}}
+    <button type="button" name="remove" ng-click = 'narrow.removeItem({index: $index})'>Don't want this one!</button>
+  </li>
+</div>
