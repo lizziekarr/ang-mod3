@@ -7,19 +7,26 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/styles.css">
     <script type="text/javascript" src='angular.min.js'></script>
-    <script type="text/javascript" src='js/app.js'>
+    <script type="text/javascript" src='js/mod3/app.js'>
 
     </script>
   </head>
-<body ng-app = 'NarrowItDownApp' ng-controller = 'NarrowItDownController as Ctrl'>
+<body ng-app = 'NarrowItDownApp' ng-controller = 'NarrowItDownController as narrow'>
    <div class="container" >
     <h1>Narrow Down Your Chinese Menu Choice</h1>
 
     <div class="form-group">
-      <input type="text" placeholder="search term" class="form-control">
+      <input type="text" placeholder="search term" class="form-control" ng-model = 'narrow.searchTerm' >
     </div>
     <div class="form-group narrow-button">
-      <button class="btn btn-primary">Narrow It Down For Me!</button>
+      <button class="btn btn-primary" ng-click = 'narrow.getData()'>Narrow It Down For Me!</button>
+    </div>
+    <br><br><br><br>
+    <div class="items" ng-repeat = 'item in narrow.found track by $index'>
+        <li>
+          {{item}}
+        <button type="button" name="remove" ng-click = 'narrow.removeItem($index)'>Remove</button>
+      </li>
     </div>
 
     <!-- found-items should be implemented as a component
